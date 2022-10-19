@@ -1,3 +1,5 @@
+require ('./bootstrap') // aplica a configuracao do axios
+
 import Vue from 'vue'
 import BaseTemplate from './layouts/BaseTemplate'
 import router from './routes'

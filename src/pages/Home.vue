@@ -96,3 +96,21 @@
     </div>
     <!-- /.row -->
 </template>
+
+<script>
+import { mapActions } from 'vuex'
+export default {
+    mounted() { // assim que montar o componente Home, chama a action getCompanies
+        // usando o mapActions
+        this.getCompanies()
+        
+        //this.$store.dispatch('getCompanies')
+    },
+
+    methods: {
+        ...mapActions([
+            'getCompanies'
+        ])
+    }
+}
+</script>

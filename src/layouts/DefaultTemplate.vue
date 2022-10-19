@@ -1,14 +1,28 @@
 <template>
     <div>
-        template
+        <header-component />
+
+        <!-- Page Content -->
+        <div class="container container-body">
+            <!-- renderiza as rotas-->
+            <router-view></router-view>
+        </div>
+
+        <footer-component/>
     </div>
 </template>
 
 <script>
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import HeaderComponent from './_partials/header'
+import FooterComponent from './_partials/footer'
 
 export default {
+    components: {
+        HeaderComponent,
+        FooterComponent
+    }
 }
 </script>
 

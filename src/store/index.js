@@ -6,9 +6,9 @@ import companies from './modules/companies'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-    modules: [
+    modules: {
         companies
-    ]
+    }
 })
 
 export default store

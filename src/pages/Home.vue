@@ -34,23 +34,29 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 export default {
     mounted() { // assim que montar o componente Home, chama a action getCompanies
         // usando o mapActions
         this.getCompanies()
+            .catch(response => {
+                this.$vToastify.error('Falha ao carregar empresas', 'Erro')
+            })
 
         //this.$store.dispatch('getCompanies')
     },
 
     computed: {
-        companies() {
-            return this.$store.state.companies.items
-        }
+        ...mapState({ // mapeia os states do vuex
+            companies: state => state.companies.items
+        })
+        // companies() {
+        //     return this.$store.state.companies.items
+        // }
     },
 
     methods: {
-        ...mapActions([
+        ...mapActions([ // mapeia as actions do vuex
             'getCompanies'
         ])
     }
